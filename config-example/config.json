@@ -1,0 +1,21 @@
+{
+    "DEBUG": true,
+    "PRE_MAIN_XAML": "",
+    "POST_MAIN_XAML": "",
+    "MAIN_XAML": "Main.xaml",
+    "PROCESS_NAME": "RPA流程名称",
+    "MAX_RETRIES": 0,
+    "PROCESS_TIMEOUT": 3600000,
+    "EMAIL_PROTOCOL": "SMTP",
+    "EMAIL_HOST": "smtp.email.com",
+    "EMAIL_PORT": 465,
+    "EMAIL_USER": "sender@email",
+    "EMAIL_PSWD": "P@ssw0rd",
+    "NOTIFICATION_TYPE": "EMAIL",
+    "EMAIL_NOTIFY_EXCE": "exception_recipients@email.com",
+    "EMAIL_NOTIFY_WARN": "warning_recipients@email.com",
+    "EMAIL_NOTIFY_INFO": "notification_recipients@email.com",
+    "TAKE_SCREENSHOT": true,
+    "DISABLE_INFO": false,
+    "DISABLE_WARN": false
+}
