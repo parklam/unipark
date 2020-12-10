@@ -1,7 +1,7 @@
 {
     "DEBUG": true,
-    "PRE_MAIN_XAML": "",
-    "POST_MAIN_XAML": "",
+    "PRE_MAIN_XAML": "PreMain.xaml",
+    "POST_MAIN_XAML": "PostMain.xaml",
     "MAIN_XAML": "Main.xaml",
     "PROCESS_NAME": "RPA流程名称",
     "MAX_RETRIES": 0,

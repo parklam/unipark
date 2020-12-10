@@ -3,7 +3,7 @@
     <x:Property Name="dictConfig" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="dictArgs" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1162,1332</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1132,1292</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -42,6 +42,10 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="读取Excel配置" sap:VirtualizedContainerService.HintSize="626,1127" sap2010:WorkflowViewState.IdRef="Sequence_25">
@@ -128,7 +132,7 @@
                                       <OutArgument x:TypeArguments="x:Object">[dictConfig(CStr(row("Key")))]</OutArgument>
                                     </ui:AssignOperation.To>
                                     <ui:AssignOperation.Value>
-                                      <InArgument x:TypeArguments="x:Object">[row("Value").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="x:Object">[CStr(row("Value"))]</InArgument>
                                     </ui:AssignOperation.Value>
                                   </ui:AssignOperation>
                                 </scg:List>

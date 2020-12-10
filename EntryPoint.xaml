@@ -6,10 +6,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1162,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1373,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>EntryPoint_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="27">
+    <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -37,10 +37,13 @@
       <x:String>Newtonsoft.Json.Linq</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -66,11 +69,17 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="EntryPoint" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Default="[New Dictionary(Of String, Object)]" Name="dictConfig" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Default="[New Dictionary(Of String, Object)]" Name="dictContext" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="retries" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="exitCode" />
     </Flowchart.Variables>
@@ -99,27 +108,23 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeCode ContinueOnError="{x:Null}" Code="dictReturn = new Dictionary&lt;String, Object&gt;();&#xD;&#xA;&#xD;&#xA;if(!dictArgs.ContainsKey(&quot;config_file&quot;)) {&#xD;&#xA;&#x9;foreach(string file in Directory.GetFiles(&quot;.&quot;)) {&#xD;&#xA;&#x9;&#x9;string fn = Path.GetFileName(file);&#xD;&#xA;&#x9;&#x9;if(fn.Equals(&quot;config.json&quot;) || fn.Equals(&quot;config.xlsx&quot;)) {&#xD;&#xA;&#x9;&#x9;&#x9;dictArgs.Add(&quot;config_file&quot;, file);&#xD;&#xA;&#x9;&#x9;&#x9;break;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}" DisplayName="设置默认配置文件" sap:VirtualizedContainerService.HintSize="528,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+        <ui:InvokeCode ContinueOnError="{x:Null}" Code="dictReturn = new Dictionary&lt;String, Object&gt;();&#xA;&#xA;if(!dictArgs.ContainsKey(&quot;config_file&quot;)) {&#xA;&#x9;foreach(string file in Directory.GetFiles(&quot;.&quot;)) {&#xA;&#x9;&#x9;string fn = Path.GetFileName(file);&#xA;&#x9;&#x9;if(fn.Equals(&quot;config.json&quot;) || fn.Equals(&quot;config.xlsx&quot;)) {&#xA;&#x9;&#x9;&#x9;dictArgs.Add(&quot;config_file&quot;, file);&#xA;&#x9;&#x9;&#x9;break;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}" DisplayName="设置默认配置文件" sap:VirtualizedContainerService.HintSize="524,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
           <ui:InvokeCode.Arguments>
-            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictReturn">
-              <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="dictReturn" />
-            </InOutArgument>
-            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">
-              <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="dictArgs" />
-            </InOutArgument>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictReturn">[dictReturn]</InOutArgument>
+            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InOutArgument>
           </ui:InvokeCode.Arguments>
         </ui:InvokeCode>
-        <ui:CheckTrue DisplayName="Check True" ErrorMessage="[String.Format(&quot;没有找到全局配置文件：{0}&quot;, CStr(dictArgs(&quot;config_file&quot;)))]" Expression="[File.Exists(CStr(dictArgs(&quot;config_file&quot;)))]" sap:VirtualizedContainerService.HintSize="528,87" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
-        <If Condition="[CStr(dictArgs(&quot;config_file&quot;)).EndsWith(&quot;.json&quot;)]" DisplayName="JSON Config" sap:VirtualizedContainerService.HintSize="528,478" sap2010:WorkflowViewState.IdRef="If_9">
+        <ui:CheckTrue DisplayName="Check True" ErrorMessage="[String.Format(&quot;没有找到全局配置文件：{0}&quot;, CStr(dictArgs(&quot;config_file&quot;)))]" Expression="[File.Exists(CStr(dictArgs(&quot;config_file&quot;)))]" sap:VirtualizedContainerService.HintSize="524,87" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="524,95" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;Use {0}&quot;, CStr(dictArgs(&quot;config_file&quot;)))]" />
+        <If Condition="[CStr(dictArgs(&quot;config_file&quot;)).EndsWith(&quot;.json&quot;)]" DisplayName="JSON Config" sap:VirtualizedContainerService.HintSize="524,343" sap2010:WorkflowViewState.IdRef="If_9">
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="380,325" sap2010:WorkflowViewState.IdRef="Sequence_23">
+            <Sequence sap:VirtualizedContainerService.HintSize="376,190" sap2010:WorkflowViewState.IdRef="Sequence_23">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,95" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Load JSON config file&quot;]" />
-              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -136,16 +141,15 @@
             </Sequence>
           </If.Then>
         </If>
-        <If Condition="[CStr(dictArgs(&quot;config_file&quot;)).EndsWith(&quot;.xlsx&quot;)]" DisplayName="EXCEL Config" sap:VirtualizedContainerService.HintSize="528,467" sap2010:WorkflowViewState.IdRef="If_10">
+        <If Condition="[CStr(dictArgs(&quot;config_file&quot;)).EndsWith(&quot;.xlsx&quot;)]" DisplayName="EXCEL Config" sap:VirtualizedContainerService.HintSize="524,359" sap2010:WorkflowViewState.IdRef="If_10">
           <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,314" sap2010:WorkflowViewState.IdRef="Sequence_24">
+            <Sequence sap:VirtualizedContainerService.HintSize="376,206" sap2010:WorkflowViewState.IdRef="Sequence_24">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Load EXCEL config file&quot;]" />
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="UniPark/Component/Config/Excel.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="UniPark/Component/Config/Excel.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InArgument>
                   <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InOutArgument>
@@ -154,14 +158,14 @@
             </Sequence>
           </If.Then>
         </If>
-        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="528,95" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Config file loaded&quot;]" />
-        <ui:InvokeCode ContinueOnError="{x:Null}" Code="dictConfig.Add(&quot;COMPUTER_NAME&quot;, &#xD;&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;COMPUTERNAME&quot;));&#xD;&#xA;dictConfig.Add(&quot;USER_NAME&quot;,&#xD;&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERNAME&quot;));&#xD;&#xA;dictConfig.Add(&quot;USER_PROFILE&quot;,&#xD;&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;));&#xD;&#xA;dictConfig.Add(&quot;TEMP&quot;,&#xD;&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;TEMP&quot;));&#xD;&#xA;dictConfig.Add(&quot;USER_DOMAIN&quot;,&#xD;&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERDOMAIN&quot;));&#xD;&#xA;dictConfig.Add(&quot;SESSION_NAME&quot;,&#xD;&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;SESSIONNAME&quot;));&#xD;&#xA;&#xD;&#xA;// Default values&#xD;&#xA;if(!dictConfig.ContainsKey(&quot;MAIN_XAML&quot;)) {&#xD;&#xA;&#x9;dictConfig.Add(&quot;MAIN_XAML&quot;, &quot;Main.xaml&quot;);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(!dictConfig.ContainsKey(&quot;DEBUG&quot;)) {&#xD;&#xA;&#x9;dictConfig.Add(&quot;DEBUG&quot;, false);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(!dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;)) {&#xD;&#xA;&#x9;dictConfig.Add(&quot;MAX_RETRIES&quot;, 0);  // Default: Don't retry&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(!dictConfig.ContainsKey(&quot;PROCESS_TIMEOUT&quot;)) {&#xD;&#xA;&#x9;dictConfig.Add(&quot;PROCESS_TIMEOUT&quot;, 3600000);   // Default: 1 hour&#xD;&#xA;}" DisplayName="加载配置文件及环境变量" sap:VirtualizedContainerService.HintSize="528,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="524,95" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[String.Format(&quot;Config[{0}] is loaded&quot;, CStr(dictArgs(&quot;config_file&quot;)))]" />
+        <ui:InvokeCode ContinueOnError="{x:Null}" Code="dictConfig.Add(&quot;COMPUTER_NAME&quot;, &#xA;&#x9;Environment.GetEnvironmentVariable(&quot;COMPUTERNAME&quot;));&#xA;dictConfig.Add(&quot;USER_NAME&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERNAME&quot;));&#xA;dictConfig.Add(&quot;USER_PROFILE&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;));&#xA;dictConfig.Add(&quot;TEMP&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;TEMP&quot;));&#xA;dictConfig.Add(&quot;USER_DOMAIN&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERDOMAIN&quot;));&#xA;dictConfig.Add(&quot;SESSION_NAME&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;SESSIONNAME&quot;));&#xA;&#xA;// Default values&#xA;if(!dictConfig.ContainsKey(&quot;MAIN_XAML&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;MAIN_XAML&quot;, &quot;Main.xaml&quot;);&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;DEBUG&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;DEBUG&quot;, false);&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;MAX_RETRIES&quot;, 0);  // Default: Don't retry&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;PROCESS_TIMEOUT&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;PROCESS_TIMEOUT&quot;, 3600000);   // Default: 1 hour&#xA;}" DisplayName="加载配置文件及环境变量" sap:VirtualizedContainerService.HintSize="524,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
           <ui:InvokeCode.Arguments>
             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InArgument>
             <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InOutArgument>
           </ui:InvokeCode.Arguments>
         </ui:InvokeCode>
-        <If Condition="[dictConfig.ContainsKey(&quot;DEBUG&quot;) AndAlso CBool(dictConfig(&quot;DEBUG&quot;))]" DisplayName="输出配置信息" sap:VirtualizedContainerService.HintSize="528,385" sap2010:WorkflowViewState.IdRef="If_1">
+        <If Condition="[CBool(dictConfig(&quot;DEBUG&quot;))]" DisplayName="输出配置信息" sap:VirtualizedContainerService.HintSize="524,385" sap2010:WorkflowViewState.IdRef="If_1">
           <If.Then>
             <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="370,232" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[dictConfig]">
               <ui:ForEach.Body>
@@ -185,81 +189,120 @@
               <av:PointCollection x:Key="ConnectorLocation">300,317.5 300,367.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="调用主流程文件" sap:VirtualizedContainerService.HintSize="1307,594" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence DisplayName="调用主流程文件" sap:VirtualizedContainerService.HintSize="1351,1359" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Parallel DisplayName="计时器并行" sap:VirtualizedContainerService.HintSize="1265,502" sap2010:WorkflowViewState.IdRef="Parallel_1">
+            <Parallel DisplayName="计时器并行" sap:VirtualizedContainerService.HintSize="1309,1267" sap2010:WorkflowViewState.IdRef="Parallel_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Parallel.CompletionCondition>True</Parallel.CompletionCondition>
-              <ui:InterruptibleDoWhile Condition="[dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;) AndAlso retries &lt;= CInt(dictConfig(&quot;MAX_RETRIES&quot;))]" DisplayName="Retry Block(Loop)" sap:VirtualizedContainerService.HintSize="470,456" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+              <Parallel.CompletionCondition>
+                <Literal x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="Literal`1_1" Value="True" />
+              </Parallel.CompletionCondition>
+              <ui:InterruptibleDoWhile DisplayName="Retry Block(Loop)" sap:VirtualizedContainerService.HintSize="492,1221" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
                 <ui:InterruptibleDoWhile.Body>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,217" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,1052" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <TryCatch.Try>
-                      <Sequence DisplayName="调用主流程文件" sap:VirtualizedContainerService.HintSize="568,1011" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <Sequence DisplayName="调用主流程文件" sap:VirtualizedContainerService.HintSize="418,791" sap2010:WorkflowViewState.IdRef="Sequence_14">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Pre 调用主流程文件" sap:VirtualizedContainerService.HintSize="526,330" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <Sequence DisplayName="Pre 调用主流程文件" sap:VirtualizedContainerService.HintSize="376,70" sap2010:WorkflowViewState.IdRef="Sequence_11">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[dictConfig.ContainsKey(&quot;PRE_MAIN_XMAL&quot;) AndAlso Not String.IsNullOrEmpty(CStr(dictConfig(&quot;PRE_MAIN_XAML&quot;)))]" DisplayName="Has Pre-Main File" sap:VirtualizedContainerService.HintSize="484,238" sap2010:WorkflowViewState.IdRef="If_4">
+                          <If Condition="[dictConfig.ContainsKey(&quot;PRE_MAIN_XAML&quot;) AndAlso Not String.IsNullOrEmpty(CStr(dictConfig(&quot;PRE_MAIN_XAML&quot;)))]" DisplayName="Has Pre-Main File" sap:VirtualizedContainerService.HintSize="524,492" sap2010:WorkflowViewState.IdRef="If_4">
                             <If.Then>
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="[CStr(dictConfig(&quot;PRE_MAIN_XAML&quot;))]">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InArgument>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
-                              </ui:InvokeWorkflowFile>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,341" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[String.Format(&quot;Start: {0}&quot;, CStr(dictConfig(&quot;PRE_MAIN_XAML&quot;)))]" />
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="[CStr(dictConfig(&quot;PRE_MAIN_XAML&quot;))]">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
+                                    <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictContext">[dictContext]</InOutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
                             </If.Then>
                           </If>
                         </Sequence>
-                        <Sequence DisplayName="Do 调用流程文件" sap:VirtualizedContainerService.HintSize="526,179" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <Sequence DisplayName="Do 调用流程文件" sap:VirtualizedContainerService.HintSize="376,479" sap2010:WorkflowViewState.IdRef="Sequence_12">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="[CStr(dictConfig(&quot;MAIN_XAML&quot;))]">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[String.Format(&quot;Start: {0}&quot;, CStr(dictConfig(&quot;MAIN_XAML&quot;)))]" />
+                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="[CStr(dictConfig(&quot;MAIN_XAML&quot;))]">
                             <ui:InvokeWorkflowFile.Arguments>
                               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InArgument>
                               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
+                              <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictContext">[dictContext]</InOutArgument>
+                              <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictReturn">[dictReturn]</InOutArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[exitCode]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
                         </Sequence>
-                        <Sequence DisplayName="Post 调用主流程文件" sap:VirtualizedContainerService.HintSize="526,330" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <Sequence DisplayName="Post 调用主流程文件" sap:VirtualizedContainerService.HintSize="376,70" sap2010:WorkflowViewState.IdRef="Sequence_13">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[dictConfig.ContainsKey(&quot;POST_MAIN_XAML&quot;) AndAlso Not String.IsNullOrEmpty(CStr(dictConfig(&quot;POST_MAIN_XAML&quot;)))]" DisplayName="Has Post-Main File" sap:VirtualizedContainerService.HintSize="484,238" sap2010:WorkflowViewState.IdRef="If_5">
+                          <If Condition="[dictConfig.ContainsKey(&quot;POST_MAIN_XAML&quot;) AndAlso Not String.IsNullOrEmpty(CStr(dictConfig(&quot;POST_MAIN_XAML&quot;)))]" DisplayName="Has Post-Main File" sap:VirtualizedContainerService.HintSize="524,494" sap2010:WorkflowViewState.IdRef="If_5">
                             <If.Then>
-                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="[CStr(dictConfig(&quot;POST_MAIN_XAML&quot;))]">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InArgument>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
-                              </ui:InvokeWorkflowFile>
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,341" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[String.Format(&quot;Start: {0}&quot;, CStr(dictConfig(&quot;POST_MAIN_XAML&quot;)))]" />
+                                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="[CStr(dictConfig(&quot;POST_MAIN_XAML&quot;))]">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">[dictArgs]</InArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
+                                    <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictContext">[dictContext]</InOutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
                             </If.Then>
                           </If>
                         </Sequence>
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="ui:CheckpointException" sap:VirtualizedContainerService.HintSize="400,23" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                      <Catch x:TypeArguments="ui:CheckpointException" sap:VirtualizedContainerService.HintSize="422,23" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -270,13 +313,28 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:CheckpointException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="处理CheckPoint异常" sap:VirtualizedContainerService.HintSize="810,444" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <Sequence DisplayName="处理CheckPoint异常" sap:VirtualizedContainerService.HintSize="830,70" sap2010:WorkflowViewState.IdRef="Sequence_17">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If Condition="[dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;) AndAlso retries &lt; CInt(dictConfig(&quot;MAX_RETRIES&quot;))]" DisplayName="是否重试？" sap:VirtualizedContainerService.HintSize="768,392" sap2010:WorkflowViewState.IdRef="If_6">
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="788,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[exitCode]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:Int32">[exception.HResult]</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                            <If Condition="[dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;) AndAlso retries &lt; CInt(dictConfig(&quot;MAX_RETRIES&quot;))]" DisplayName="是否重试？" sap:VirtualizedContainerService.HintSize="788,419" sap2010:WorkflowViewState.IdRef="If_6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -284,7 +342,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                                   <ui:MultipleAssign.AssignOperations>
                                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -300,27 +358,27 @@
                                 </ui:MultipleAssign>
                               </If.Then>
                               <If.Else>
-                                <Sequence DisplayName="发送[警告]邮件" sap:VirtualizedContainerService.HintSize="385,241" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                <Sequence DisplayName="发送[警告]邮件" sap:VirtualizedContainerService.HintSize="409,268" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Notification.xaml">
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="367,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Notification.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
                                       <InArgument x:TypeArguments="x:Boolean" x:Key="isWarning">True</InArgument>
                                       <InArgument x:TypeArguments="x:String" x:Key="message">[exception.Message]</InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
-                                  <Rethrow sap:VirtualizedContainerService.HintSize="343,22" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
+                                  <Rethrow sap:VirtualizedContainerService.HintSize="367,22" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
                                 </Sequence>
                               </If.Else>
                             </If>
                           </Sequence>
                         </ActivityAction>
                       </Catch>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,23" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422,23" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -331,21 +389,35 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="处理其他异常" sap:VirtualizedContainerService.HintSize="801,444" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <Sequence DisplayName="处理其他异常" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_19">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If Condition="[dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;) AndAlso retries &lt; CInt(dictConfig(&quot;MAX_RETRIES&quot;))]" DisplayName="是否重试？" sap:VirtualizedContainerService.HintSize="759,392" sap2010:WorkflowViewState.IdRef="If_8">
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[exitCode]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:Int32">[exception.HResult]</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                            <If Condition="[dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;) AndAlso retries &lt; CInt(dictConfig(&quot;MAX_RETRIES&quot;))]" DisplayName="是否重试？" sap:VirtualizedContainerService.HintSize="334,53" sap2010:WorkflowViewState.IdRef="If_8">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                                   <ui:MultipleAssign.AssignOperations>
                                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -361,19 +433,19 @@
                                 </ui:MultipleAssign>
                               </If.Then>
                               <If.Else>
-                                <Sequence DisplayName="发送[异常]邮件" sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                <Sequence DisplayName="发送[异常]邮件" sap:VirtualizedContainerService.HintSize="398,268" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Exception.xaml">
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="356,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Exception.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
                                       <InArgument x:TypeArguments="s:Exception" x:Key="exception">[exception]</InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
-                                  <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_4" />
+                                  <Rethrow sap:VirtualizedContainerService.HintSize="356,22" sap2010:WorkflowViewState.IdRef="Rethrow_4" />
                                 </Sequence>
                               </If.Else>
                             </If>
@@ -383,23 +455,26 @@
                     </TryCatch.Catches>
                   </TryCatch>
                 </ui:InterruptibleDoWhile.Body>
+                <ui:InterruptibleDoWhile.Condition>
+                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="exitCode &lt;&gt; 0 AndAlso dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;) AndAlso retries &lt;= CInt(dictConfig(&quot;MAX_RETRIES&quot;))" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
+                </ui:InterruptibleDoWhile.Condition>
               </ui:InterruptibleDoWhile>
-              <If Condition="[CInt(dictConfig(&quot;PROCESS_TIMEOUT&quot;)) &gt; 0]" sap:VirtualizedContainerService.HintSize="621,456" sap2010:WorkflowViewState.IdRef="If_7">
+              <If Condition="[CInt(dictConfig(&quot;PROCESS_TIMEOUT&quot;)) &gt; 0]" sap:VirtualizedContainerService.HintSize="643,1221" sap2010:WorkflowViewState.IdRef="If_7">
                 <If.Then>
-                  <Sequence DisplayName="设定流程超时时长" sap:VirtualizedContainerService.HintSize="376,303" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <Sequence DisplayName="设定流程超时时长" sap:VirtualizedContainerService.HintSize="398,330" sap2010:WorkflowViewState.IdRef="Sequence_20">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Delay DisplayName="延时" Duration="[TimeSpan.FromMilliseconds(CInt(dictConfig(&quot;PROCESS_TIMEOUT&quot;)))]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Exception.xaml">
+                    <Delay DisplayName="延时" Duration="[TimeSpan.FromMilliseconds(CInt(dictConfig(&quot;PROCESS_TIMEOUT&quot;)))]" sap:VirtualizedContainerService.HintSize="356,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="356,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Exception.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
                         <InArgument x:TypeArguments="s:Exception" x:Key="exception">[New TimeoutException("流程超时退出！")]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <Throw DisplayName="超时异常" Exception="[New TimeoutException(&quot;流程运行时间超时.&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    <Throw DisplayName="超时异常" Exception="[New TimeoutException(&quot;流程运行时间超时.&quot;)]" sap:VirtualizedContainerService.HintSize="356,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
                   </Sequence>
                 </If.Then>
                 <If.Else>
@@ -422,14 +497,14 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="343,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Notification.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="367,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="UniPark\Component\Notify\Notification.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">[dictConfig]</InArgument>
                     <InArgument x:TypeArguments="x:Boolean" x:Key="isWarning">False</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="message">流程执行成功！</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="343,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="367,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
