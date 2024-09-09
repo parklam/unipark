@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Warn" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Warn" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="dictConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="message" Type="InArgument(x:String)" />
@@ -42,46 +42,46 @@
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>System.Activities</AssemblyReference>
-      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
-      <AssemblyReference>mscorlib</AssemblyReference>
-      <AssemblyReference>System.Data</AssemblyReference>
-      <AssemblyReference>System</AssemblyReference>
-      <AssemblyReference>System.Drawing</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>PresentationCore</AssemblyReference>
-      <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="【警告】邮件" sap:VirtualizedContainerService.HintSize="1009,1764" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="imgPath">
         <Variable.Default>
-          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">null</mca:CSharpValue>
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">null</CSharpValue>
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="ui:Image" Name="screenshot" />
@@ -96,7 +96,7 @@
     <If DisplayName="是否屏蔽通知邮件？" sap:VirtualizedContainerService.HintSize="967,1672" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
-          <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">!Convert.ToBoolean(dictConfig["DISABLE_WARN"])</mca:CSharpValue>
+          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">!Convert.ToBoolean(dictConfig["DISABLE_WARN"])</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
@@ -112,7 +112,7 @@
                 <ui:IfElseIfBlock BlockType="If">
                   <ui:IfElseIfBlock.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
-                      <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Convert.ToBoolean(dictConfig["TAKE_SCREENSHOT"])</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Convert.ToBoolean(dictConfig["TAKE_SCREENSHOT"])</CSharpValue>
                     </InArgument>
                   </ui:IfElseIfBlock.Condition>
                   <ui:IfElseIfBlock.Then>
@@ -125,19 +125,19 @@
                       <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_1">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">
-                            <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">imgPath</mca:CSharpReference>
+                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">imgPath</CSharpReference>
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:String">
-                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">Path.ChangeExtension(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()), ".jpg")</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">Path.ChangeExtension(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()), ".jpg")</CSharpValue>
                           </InArgument>
                         </Assign.Value>
                       </Assign>
                       <ui:TakeScreenshot WaitBefore="{x:Null}" DisplayName="Take Screenshot" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1">
                         <ui:TakeScreenshot.Screenshot>
                           <OutArgument x:TypeArguments="ui:Image">
-                            <mca:CSharpReference x:TypeArguments="ui:Image" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">screenshot</mca:CSharpReference>
+                            <CSharpReference x:TypeArguments="ui:Image" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">screenshot</CSharpReference>
                           </OutArgument>
                         </ui:TakeScreenshot.Screenshot>
                         <ui:TakeScreenshot.Target>
@@ -154,12 +154,12 @@
                       <ui:SaveImage DisplayName="Save Image" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_1">
                         <ui:SaveImage.FileName>
                           <InArgument x:TypeArguments="x:String">
-                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">imgPath</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">imgPath</CSharpValue>
                           </InArgument>
                         </ui:SaveImage.FileName>
                         <ui:SaveImage.Image>
                           <InArgument x:TypeArguments="ui:Image">
-                            <mca:CSharpValue x:TypeArguments="ui:Image" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">screenshot</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="ui:Image" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">screenshot</CSharpValue>
                           </InArgument>
                         </ui:SaveImage.Image>
                       </ui:SaveImage>
@@ -177,12 +177,12 @@
                       <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_2">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">
-                            <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">imgPath</mca:CSharpReference>
+                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">imgPath</CSharpReference>
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:String">
-                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">null</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">null</CSharpValue>
                           </InArgument>
                         </Assign.Value>
                       </Assign>
@@ -203,37 +203,37 @@
                 <ui:InvokeCode ContinueOnError="{x:Null}" Code="string tmpl = File.ReadAllText(&quot;.\\UniPark\\Template\\tmpl_warn.html&quot;);&#xA;&#xA;body = tmpl.Replace(&quot;{{ computer_name }}&quot;, dictConfig[&quot;COMPUTER_NAME&quot;].ToString())&#xA;&#x9;.Replace(&quot;{{ process_name }}&quot;, dictConfig[&quot;PROCESS_NAME&quot;].ToString())&#xA;&#x9;.Replace(&quot;{{ msg_type }}&quot;, &quot;警告&quot;)&#xA;&#x9;.Replace(&quot;{{ msg_content }}&quot;, message);&#xA;&#xA;subject = String.Format(@&quot;【{0}】 {1} - {2}&quot;, &quot;警告&quot;, dictConfig[&quot;PROCESS_NAME&quot;], dictConfig[&quot;COMPUTER_NAME&quot;]);" DisplayName="生成邮件内容" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
                   <ui:InvokeCode.Arguments>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                      <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">dictConfig</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">dictConfig</CSharpValue>
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="message">
-                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">message</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">message</CSharpValue>
                     </InArgument>
                     <OutArgument x:TypeArguments="x:String" x:Key="subject">
-                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">subject</mca:CSharpReference>
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">subject</CSharpReference>
                     </OutArgument>
                     <OutArgument x:TypeArguments="x:String" x:Key="body">
-                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">body</mca:CSharpReference>
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">body</CSharpReference>
                     </OutArgument>
                   </ui:InvokeCode.Arguments>
                 </ui:InvokeCode>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="发送邮件" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UniPark\\Common\\Email\\Send.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                      <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">dictConfig</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">dictConfig</CSharpValue>
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="subject">
-                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">subject</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">subject</CSharpValue>
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="body">
-                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">body</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">body</CSharpValue>
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="mail_to">
-                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Convert.ToString(dictConfig["EMAIL_NOTIFY_INFO"])</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Convert.ToString(dictConfig["EMAIL_NOTIFY_INFO"])</CSharpValue>
                     </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="mail_cc" />
                     <InArgument x:TypeArguments="x:String" x:Key="mail_bcc" />
                     <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="attachments">
-                      <mca:CSharpValue x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">String.IsNullOrEmpty(imgPath) ? null : new String[] { imgPath }</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">String.IsNullOrEmpty(imgPath) ? null : new String[] { imgPath }</CSharpValue>
                     </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
@@ -241,12 +241,12 @@
             </Switch.Default>
             <Switch.Expression>
               <InArgument x:TypeArguments="x:String">
-                <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">Convert.ToString(dictConfig["NOTIFICATION_TYPE"]).ToUpper()</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">Convert.ToString(dictConfig["NOTIFICATION_TYPE"]).ToUpper()</CSharpValue>
               </InArgument>
             </Switch.Expression>
             <Throw x:Key="&quot;SMS&quot;" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
               <InArgument x:TypeArguments="s:Exception">
-                <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">new NotImplementedException("SMS is not implemented yet. Use \"EMAIL\" instead, please.")</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">new NotImplementedException("SMS is not implemented yet. Use \"EMAIL\" instead, please.")</CSharpValue>
               </InArgument>
             </Throw>
           </Switch>
@@ -262,7 +262,7 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
             <ui:LogMessage.Message>
               <InArgument x:TypeArguments="x:Object">
-                <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"注意：通知消息已关闭！"</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"注意：通知消息已关闭！"</CSharpValue>
               </InArgument>
             </ui:LogMessage.Message>
           </ui:LogMessage>

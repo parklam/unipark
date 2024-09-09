@@ -1,72 +1,72 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="EntryPoint" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System" xmlns:sc1="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="EntryPoint" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:sc1="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="dictArgs" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="dictReturn" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <this:EntryPoint.dictArgs>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-      <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">new Dictionary&lt;string, object&gt;()</mca:CSharpValue>
+      <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">new Dictionary&lt;string, object&gt;()</CSharpValue>
     </InArgument>
   </this:EntryPoint.dictArgs>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1234,973</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>676,933</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
-      <x:String>System.Activities</x:String>
-      <x:String>System.Activities.Statements</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
       <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Activities.Statements</x:String>
       <x:String>System.Collections</x:String>
       <x:String>System.Collections.Generic</x:String>
-      <x:String>System.IO</x:String>
-      <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
-      <x:String>System.Runtime.InteropServices</x:String>
-      <x:String>System.Reflection</x:String>
-      <x:String>System.Runtime.Serialization</x:String>
-      <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.ComponentModel</x:String>
-      <x:String>Newtonsoft.Json</x:String>
-      <x:String>UiPath.Core</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
       <x:String>System.Linq.Expressions</x:String>
-      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>System.Activities</AssemblyReference>
-      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
-      <AssemblyReference>mscorlib</AssemblyReference>
-      <AssemblyReference>System.Data</AssemblyReference>
-      <AssemblyReference>System</AssemblyReference>
-      <AssemblyReference>System.Drawing</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>PresentationCore</AssemblyReference>
-      <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" DisplayName="State Machine" sap:VirtualizedContainerService.HintSize="686,908" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -87,32 +87,32 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeCode ContinueOnError="{x:Null}" Code="dictReturn = new Dictionary&lt;string,object&gt;();&#xD;&#xA;&#xD;&#xA;if(!dictArgs.ContainsKey(&quot;config_file&quot;)) {&#xD;&#xA;&#x9;foreach(string file in Directory.GetFiles(&quot;.&quot;)) {&#xD;&#xA;&#x9;&#x9;// Development mode&#xD;&#xA;&#x9;&#x9;string filename = Path.GetFileName(file);&#xD;&#xA;&#x9;&#x9;if(filename.ToLower().Equals(&quot;config.json&quot;) || filename.ToLower().Equals(&quot;config.xlsx&quot;)) {&#xD;&#xA;&#x9;&#x9;&#x9;dictArgs.Add(&quot;config_file&quot;, filename);&#xD;&#xA;&#x9;&#x9;&#x9;break;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}" DisplayName="设置默认配置文件" sap:VirtualizedContainerService.HintSize="451,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="dictReturn = new Dictionary&lt;string,object&gt;();&#xA;&#xA;if(!dictArgs.ContainsKey(&quot;config_file&quot;)) {&#xA;&#x9;foreach(string file in Directory.GetFiles(&quot;.&quot;)) {&#xA;&#x9;&#x9;// Development mode&#xA;&#x9;&#x9;string filename = Path.GetFileName(file);&#xA;&#x9;&#x9;if(filename.ToLower().Equals(&quot;config.json&quot;) || filename.ToLower().Equals(&quot;config.xlsx&quot;)) {&#xA;&#x9;&#x9;&#x9;dictArgs.Add(&quot;config_file&quot;, filename);&#xA;&#x9;&#x9;&#x9;break;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}" DisplayName="设置默认配置文件" sap:VirtualizedContainerService.HintSize="451,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
             <ui:InvokeCode.Arguments>
               <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">
-                <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">dictArgs</mca:CSharpReference>
+                <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">dictArgs</CSharpReference>
               </InOutArgument>
               <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictReturn">
-                <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">dictReturn</mca:CSharpReference>
+                <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">dictReturn</CSharpReference>
               </InOutArgument>
             </ui:InvokeCode.Arguments>
           </ui:InvokeCode>
           <ui:CheckTrue DisplayName="检查调用参数" sap:VirtualizedContainerService.HintSize="451,87" sap2010:WorkflowViewState.IdRef="CheckTrue_1">
             <ui:CheckTrue.ErrorMessage>
               <InArgument x:TypeArguments="x:String">
-                <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">String.Format("Config file is not found: {0}", Convert.ToString(dictArgs["config_file"]))</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">String.Format("Config file is not found: {0}", Convert.ToString(dictArgs["config_file"]))</CSharpValue>
               </InArgument>
             </ui:CheckTrue.ErrorMessage>
             <ui:CheckTrue.Expression>
               <InArgument x:TypeArguments="x:Boolean">
-                <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">File.Exists(Convert.ToString(dictArgs["config_file"]))</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">File.Exists(Convert.ToString(dictArgs["config_file"]))</CSharpValue>
               </InArgument>
             </ui:CheckTrue.Expression>
           </ui:CheckTrue>
           <ui:LogMessage DisplayName="调试信息" sap:VirtualizedContainerService.HintSize="451,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
             <ui:LogMessage.Message>
               <InArgument x:TypeArguments="x:Object">
-                <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">String.Format("Use config file: {0}",Convert.ToString(dictArgs["config_file"]))</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">String.Format("Use config file: {0}",Convert.ToString(dictArgs["config_file"]))</CSharpValue>
               </InArgument>
             </ui:LogMessage.Message>
           </ui:LogMessage>
@@ -122,7 +122,7 @@
                 <ui:IfElseIfBlock BlockType="If">
                   <ui:IfElseIfBlock.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
-                      <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Convert.ToString(dictArgs["config_file"]).EndsWith(".json")</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">Convert.ToString(dictArgs["config_file"]).EndsWith(".json")</CSharpValue>
                     </InArgument>
                   </ui:IfElseIfBlock.Condition>
                   <ui:IfElseIfBlock.Then>
@@ -135,10 +135,10 @@
                       <ui:InvokeCode ContinueOnError="{x:Null}" Code="object Traverse(object jsonObj) {&#xA;&#x9;if(jsonObj is JObject)&#xA;&#x9;{&#xA;&#x9;    Dictionary&lt;string, object&gt; originDict = ((JObject)jsonObj).ToObject&lt;Dictionary&lt;string, object&gt;&gt;();&#xA;&#x9;    Dictionary&lt;string, object&gt; resultDict = new Dictionary&lt;string, object&gt;();&#xA;&#x9;&#xA;&#x9;    foreach(string key in originDict.Keys) {&#xA;&#x9;        resultDict[key] = Traverse(originDict[key]);&#xA;&#x9;    }&#xA;&#x9;    return resultDict;&#xA;&#x9;}&#xA;&#x9;else if(jsonObj is JArray)&#xA;&#x9;{&#xA;&#x9;    List&lt;object&gt; originLst = ((JArray)jsonObj).ToObject&lt;List&lt;object&gt;&gt;();&#xA;&#x9;    List&lt;object&gt; resultLst = new List&lt;object&gt;();&#xA;&#x9;&#xA;&#x9;    foreach(object obj in originLst)&#xA;&#x9;    {&#xA;&#x9;        resultLst.Add(Traverse(obj));&#xA;&#x9;    }&#xA;&#x9;    return resultLst;;&#xA;&#x9;}&#xA;&#x9;else&#xA;&#x9;{&#xA;&#x9;    return jsonObj;&#xA;&#x9;}&#xA;};&#xA;&#xA;jsonObj = (Dictionary&lt;string, object&gt;) Traverse(JsonConvert.DeserializeObject&lt;JToken&gt;(jsonStr));" DisplayName="解析JSON" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
                         <ui:InvokeCode.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="jsonStr">
-                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">File.ReadAllText((string) dictArgs["config_file"])</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">File.ReadAllText((string) dictArgs["config_file"])</CSharpValue>
                           </InArgument>
                           <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="jsonObj">
-                            <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">dictConfig</mca:CSharpReference>
+                            <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">dictConfig</CSharpReference>
                           </InOutArgument>
                         </ui:InvokeCode.Arguments>
                       </ui:InvokeCode>
@@ -148,7 +148,7 @@
                 <ui:IfElseIfBlock BlockType="ElseIf">
                   <ui:IfElseIfBlock.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
-                      <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">Convert.ToString(dictArgs["config_file"]).EndsWith(".xlsx")</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">Convert.ToString(dictArgs["config_file"]).EndsWith(".xlsx")</CSharpValue>
                     </InArgument>
                   </ui:IfElseIfBlock.Condition>
                   <ui:IfElseIfBlock.Then>
@@ -161,10 +161,10 @@
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="解析Excel" sap:VirtualizedContainerService.HintSize="347,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UniPark\\Component\\Config\\Excel.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">
-                            <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">dictArgs</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">dictArgs</CSharpValue>
                           </InArgument>
                           <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                            <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">dictConfig</mca:CSharpReference>
+                            <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">dictConfig</CSharpReference>
                           </InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
@@ -177,12 +177,12 @@
           <Assign DisplayName="加载完成" sap:VirtualizedContainerService.HintSize="451,61" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">
-                <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">loaded</mca:CSharpReference>
+                <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">loaded</CSharpReference>
               </OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:Boolean">
-                <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">dictConfig.ContainsKey("PROCESS_NAME")</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">dictConfig.ContainsKey("PROCESS_NAME")</CSharpValue>
               </InArgument>
             </Assign.Value>
           </Assign>
@@ -194,7 +194,7 @@
           <av:Size x:Key="ShapeSize">246,107</av:Size>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Double x:Key="StateContainerWidth">212</x:Double>
-          <x:Double x:Key="StateContainerHeight">70.519999999999982</x:Double>
+          <x:Double x:Key="StateContainerHeight">70.51999999999998</x:Double>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <State.Exit>
@@ -207,14 +207,14 @@
           <ui:InvokeCode ContinueOnError="{x:Null}" Code="dictConfig.Add(&quot;COMPUTER_NAME&quot;, &#xA;&#x9;Environment.GetEnvironmentVariable(&quot;COMPUTERNAME&quot;));&#xA;dictConfig.Add(&quot;USER_NAME&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERNAME&quot;));&#xA;dictConfig.Add(&quot;USER_PROFILE&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;));&#xA;dictConfig.Add(&quot;TEMP&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;TEMP&quot;));&#xA;dictConfig.Add(&quot;USER_DOMAIN&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;USERDOMAIN&quot;));&#xA;dictConfig.Add(&quot;SESSION_NAME&quot;,&#xA;&#x9;Environment.GetEnvironmentVariable(&quot;SESSIONNAME&quot;));&#xA;&#xA;// Default values&#xA;if(!dictConfig.ContainsKey(&quot;MAIN_XAML&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;MAIN_XAML&quot;, &quot;Main.xaml&quot;);&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;DEBUG&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;DEBUG&quot;, false);&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;MAX_RETRIES&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;MAX_RETRIES&quot;, 0);  // Default: Don't retry&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;PROCESS_TIMEOUT&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;PROCESS_TIMEOUT&quot;, 3600000);   // Default: 1 hour&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;TAKE_SCREENSHOT&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;TAKE_SCREENSHOT&quot;, true);&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;DISABLE_INFO&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;DISABLE_INFO&quot;, false);&#xA;}&#xA;&#xA;if(!dictConfig.ContainsKey(&quot;DISABLE_WARN&quot;)) {&#xA;&#x9;dictConfig.Add(&quot;DISABLE_WARN&quot;, false);&#xA;}" DisplayName="读取环境变量" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
             <ui:InvokeCode.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">dictConfig</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">dictConfig</CSharpValue>
               </InArgument>
             </ui:InvokeCode.Arguments>
           </ui:InvokeCode>
           <If DisplayName="如果调试模式，则打印配置信息" sap:VirtualizedContainerService.HintSize="334,53" sap2010:WorkflowViewState.IdRef="If_3">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
-                <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">Convert.ToBoolean(dictConfig["DEBUG"])</mca:CSharpValue>
+                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">Convert.ToBoolean(dictConfig["DEBUG"])</CSharpValue>
               </InArgument>
             </If.Condition>
             <sap:WorkflowViewStateService.ViewState>
@@ -239,7 +239,7 @@
                       <ui:LogMessage DisplayName="打印配置信息" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace">
                         <ui:LogMessage.Message>
                           <InArgument x:TypeArguments="x:Object">
-                            <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">String.Format("{0}\t\t{1}", kvp.Key, kvp.Value)</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_66">String.Format("{0}\t\t{1}", kvp.Key, kvp.Value)</CSharpValue>
                           </InArgument>
                         </ui:LogMessage.Message>
                       </ui:LogMessage>
@@ -248,7 +248,7 @@
                 </ui:ForEach.Body>
                 <ui:ForEach.Values>
                   <InArgument x:TypeArguments="sc1:IEnumerable">
-                    <mca:CSharpValue x:TypeArguments="sc1:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">dictConfig</mca:CSharpValue>
+                    <CSharpValue x:TypeArguments="sc1:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">dictConfig</CSharpValue>
                   </InArgument>
                 </ui:ForEach.Values>
               </ui:ForEach>
@@ -275,7 +275,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.Condition>
-            <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">loaded</mca:CSharpValue>
+            <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">loaded</CSharpValue>
           </Transition.Condition>
           <Transition.To>
             <State x:Name="__ReferenceID1" DisplayName="执行流程文件" sap:VirtualizedContainerService.HintSize="250,129" sap2010:WorkflowViewState.IdRef="State_4">
@@ -307,7 +307,7 @@
                               <If DisplayName="Has Pre-Main File" sap:VirtualizedContainerService.HintSize="484,53" sap2010:WorkflowViewState.IdRef="If_1">
                                 <If.Condition>
                                   <InArgument x:TypeArguments="x:Boolean">
-                                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">dictConfig.ContainsKey("PRE_MAIN_XAML") &amp;&amp; !String.IsNullOrEmpty((string) dictConfig["PRE_MAIN_XAML"])</mca:CSharpValue>
+                                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">dictConfig.ContainsKey("PRE_MAIN_XAML") &amp;&amp; !String.IsNullOrEmpty((string) dictConfig["PRE_MAIN_XAML"])</CSharpValue>
                                   </InArgument>
                                 </If.Condition>
                                 <sap:WorkflowViewStateService.ViewState>
@@ -327,44 +327,44 @@
                                     <ui:CheckTrue DisplayName="检查Pre-Main文件是否存在" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="CheckTrue_2">
                                       <ui:CheckTrue.ErrorMessage>
                                         <InArgument x:TypeArguments="x:String">
-                                          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">String.Format("PRE_MAIN_XAML不存在！{0}", dictConfig["PRE_MAIN_XAML"])</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">String.Format("PRE_MAIN_XAML不存在！{0}", dictConfig["PRE_MAIN_XAML"])</CSharpValue>
                                         </InArgument>
                                       </ui:CheckTrue.ErrorMessage>
                                       <ui:CheckTrue.Expression>
                                         <InArgument x:TypeArguments="x:Boolean">
-                                          <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">File.Exists(Convert.ToString(dictConfig["PRE_MAIN_XAML"]))</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">File.Exists(Convert.ToString(dictConfig["PRE_MAIN_XAML"]))</CSharpValue>
                                         </InArgument>
                                       </ui:CheckTrue.Expression>
                                     </ui:CheckTrue>
                                     <ui:LogMessage DisplayName="开始执行" sap:VirtualizedContainerService.HintSize="379,95" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info">
                                       <ui:LogMessage.Message>
                                         <InArgument x:TypeArguments="x:Object">
-                                          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">String.Format("开始执行：{0}", dictConfig["PRE_MAIN_XAML"])</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">String.Format("开始执行：{0}", dictConfig["PRE_MAIN_XAML"])</CSharpValue>
                                         </InArgument>
                                       </ui:LogMessage.Message>
                                     </ui:LogMessage>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="执行Pre-Main文件" sap:VirtualizedContainerService.HintSize="379,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">
-                                          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">dictArgs</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">dictArgs</CSharpValue>
                                         </InArgument>
                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                                          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">dictConfig</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">dictConfig</CSharpValue>
                                         </InArgument>
                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictContext">
-                                          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">dictContext</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">dictContext</CSharpValue>
                                         </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <ui:InvokeWorkflowFile.WorkflowFileName>
                                         <InArgument x:TypeArguments="x:String">
-                                          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">Convert.ToString(dictConfig["PRE_MAIN_XAML"])</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">Convert.ToString(dictConfig["PRE_MAIN_XAML"])</CSharpValue>
                                         </InArgument>
                                       </ui:InvokeWorkflowFile.WorkflowFileName>
                                     </ui:InvokeWorkflowFile>
                                     <ui:LogMessage DisplayName="完成执行" sap:VirtualizedContainerService.HintSize="379,95" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info">
                                       <ui:LogMessage.Message>
                                         <InArgument x:TypeArguments="x:Object">
-                                          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">String.Format("完成执行：{0}", Convert.ToString(dictConfig["PRE_MAIN_XAML"]))</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">String.Format("完成执行：{0}", Convert.ToString(dictConfig["PRE_MAIN_XAML"]))</CSharpValue>
                                         </InArgument>
                                       </ui:LogMessage.Message>
                                     </ui:LogMessage>
@@ -390,44 +390,44 @@
                                 <ui:CheckTrue DisplayName="检查Main存在" sap:VirtualizedContainerService.HintSize="352,87" sap2010:WorkflowViewState.IdRef="CheckTrue_4">
                                   <ui:CheckTrue.ErrorMessage>
                                     <InArgument x:TypeArguments="x:String">
-                                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">String.Format("MAIN_XAML不存在！{0}", dictConfig["MAIN_XAML"])</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">String.Format("MAIN_XAML不存在！{0}", dictConfig["MAIN_XAML"])</CSharpValue>
                                     </InArgument>
                                   </ui:CheckTrue.ErrorMessage>
                                   <ui:CheckTrue.Expression>
                                     <InArgument x:TypeArguments="x:Boolean">
-                                      <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">File.Exists(Convert.ToString(dictConfig["MAIN_XAML"]))</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">File.Exists(Convert.ToString(dictConfig["MAIN_XAML"]))</CSharpValue>
                                     </InArgument>
                                   </ui:CheckTrue.Expression>
                                 </ui:CheckTrue>
                                 <ui:LogMessage DisplayName="开始执行" sap:VirtualizedContainerService.HintSize="352,95" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info">
                                   <ui:LogMessage.Message>
                                     <InArgument x:TypeArguments="x:Object">
-                                      <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">String.Format("开始执行：{0}", dictConfig["MAIN_XAML"])</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">String.Format("开始执行：{0}", dictConfig["MAIN_XAML"])</CSharpValue>
                                     </InArgument>
                                   </ui:LogMessage.Message>
                                 </ui:LogMessage>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="执行Main文件" sap:VirtualizedContainerService.HintSize="352,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False">
                                   <ui:InvokeWorkflowFile.Arguments>
                                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">
-                                      <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">dictArgs</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">dictArgs</CSharpValue>
                                     </InArgument>
                                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                                      <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">dictConfig</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_58">dictConfig</CSharpValue>
                                     </InArgument>
                                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictContext">
-                                      <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">dictContext</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">dictContext</CSharpValue>
                                     </InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                   <ui:InvokeWorkflowFile.WorkflowFileName>
                                     <InArgument x:TypeArguments="x:String">
-                                      <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">Convert.ToString(dictConfig["MAIN_XAML"])</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">Convert.ToString(dictConfig["MAIN_XAML"])</CSharpValue>
                                     </InArgument>
                                   </ui:InvokeWorkflowFile.WorkflowFileName>
                                 </ui:InvokeWorkflowFile>
                                 <ui:LogMessage DisplayName="完成执行" sap:VirtualizedContainerService.HintSize="352,95" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info">
                                   <ui:LogMessage.Message>
                                     <InArgument x:TypeArguments="x:Object">
-                                      <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">String.Format("完成执行：{0}", dictConfig["MAIN_XAML"])</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">String.Format("完成执行：{0}", dictConfig["MAIN_XAML"])</CSharpValue>
                                     </InArgument>
                                   </ui:LogMessage.Message>
                                 </ui:LogMessage>
@@ -435,7 +435,7 @@
                               <If DisplayName="Has Post-Main File" sap:VirtualizedContainerService.HintSize="484,53" sap2010:WorkflowViewState.IdRef="If_2">
                                 <If.Condition>
                                   <InArgument x:TypeArguments="x:Boolean">
-                                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">dictConfig.ContainsKey("POST_MAIN_XAML") &amp;&amp; !String.IsNullOrEmpty((string) dictConfig["POST_MAIN_XAML"])</mca:CSharpValue>
+                                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">dictConfig.ContainsKey("POST_MAIN_XAML") &amp;&amp; !String.IsNullOrEmpty((string) dictConfig["POST_MAIN_XAML"])</CSharpValue>
                                   </InArgument>
                                 </If.Condition>
                                 <sap:WorkflowViewStateService.ViewState>
@@ -454,44 +454,44 @@
                                     <ui:CheckTrue DisplayName="检查Post-Main文件是否存在" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="CheckTrue_3">
                                       <ui:CheckTrue.ErrorMessage>
                                         <InArgument x:TypeArguments="x:String">
-                                          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">String.Format("POST_MAIN_XAML不存在！{0}", dictConfig["POST_MAIN_XAML"])</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">String.Format("POST_MAIN_XAML不存在！{0}", dictConfig["POST_MAIN_XAML"])</CSharpValue>
                                         </InArgument>
                                       </ui:CheckTrue.ErrorMessage>
                                       <ui:CheckTrue.Expression>
                                         <InArgument x:TypeArguments="x:Boolean">
-                                          <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">File.Exists(Convert.ToString(dictConfig["POST_MAIN_XAML"]))</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">File.Exists(Convert.ToString(dictConfig["POST_MAIN_XAML"]))</CSharpValue>
                                         </InArgument>
                                       </ui:CheckTrue.Expression>
                                     </ui:CheckTrue>
                                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="379,95" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info">
                                       <ui:LogMessage.Message>
                                         <InArgument x:TypeArguments="x:Object">
-                                          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">String.Format("开始执行：{0}", dictConfig["POST_MAIN_XAML"])</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">String.Format("开始执行：{0}", dictConfig["POST_MAIN_XAML"])</CSharpValue>
                                         </InArgument>
                                       </ui:LogMessage.Message>
                                     </ui:LogMessage>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictArgs">
-                                          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">dictArgs</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">dictArgs</CSharpValue>
                                         </InArgument>
                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                                          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">dictConfig</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">dictConfig</CSharpValue>
                                         </InArgument>
                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictContext">
-                                          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">dictContext</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">dictContext</CSharpValue>
                                         </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <ui:InvokeWorkflowFile.WorkflowFileName>
                                         <InArgument x:TypeArguments="x:String">
-                                          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">Convert.ToString(dictConfig["POST_MAIN_XAML"])</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">Convert.ToString(dictConfig["POST_MAIN_XAML"])</CSharpValue>
                                         </InArgument>
                                       </ui:InvokeWorkflowFile.WorkflowFileName>
                                     </ui:InvokeWorkflowFile>
                                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="379,95" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info">
                                       <ui:LogMessage.Message>
                                         <InArgument x:TypeArguments="x:Object">
-                                          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">String.Format("完成执行：{0}", dictConfig["POST_MAIN_XAML"])</mca:CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">String.Format("完成执行：{0}", dictConfig["POST_MAIN_XAML"])</CSharpValue>
                                         </InArgument>
                                       </ui:LogMessage.Message>
                                     </ui:LogMessage>
@@ -510,7 +510,7 @@
                               <Assign sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="Assign_5">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Boolean">
-                                    <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">executed</mca:CSharpReference>
+                                    <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">executed</CSharpReference>
                                   </OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
@@ -544,7 +544,7 @@
                                         <ui:IfElseIfBlock BlockType="If">
                                           <ui:IfElseIfBlock.Condition>
                                             <InArgument x:TypeArguments="x:Boolean">
-                                              <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">dictConfig.ContainsKey("MAX_RETRIES") &amp;&amp; retries &lt; Convert.ToInt32(dictConfig["MAX_RETRIES"])</mca:CSharpValue>
+                                              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">dictConfig.ContainsKey("MAX_RETRIES") &amp;&amp; retries &lt; Convert.ToInt32(dictConfig["MAX_RETRIES"])</CSharpValue>
                                             </InArgument>
                                           </ui:IfElseIfBlock.Condition>
                                           <ui:IfElseIfBlock.Then>
@@ -557,12 +557,12 @@
                                               <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_4">
                                                 <Assign.To>
                                                   <OutArgument x:TypeArguments="x:Int32">
-                                                    <mca:CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">retries</mca:CSharpReference>
+                                                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">retries</CSharpReference>
                                                   </OutArgument>
                                                 </Assign.To>
                                                 <Assign.Value>
                                                   <InArgument x:TypeArguments="x:Int32">
-                                                    <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">retries + 1</mca:CSharpValue>
+                                                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">retries + 1</CSharpValue>
                                                   </InArgument>
                                                 </Assign.Value>
                                               </Assign>
@@ -580,10 +580,10 @@
                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notify: Warn" sap:VirtualizedContainerService.HintSize="346,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="UniPark\\Component\\Notify\\Warn.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
                                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                                                    <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">dictConfig</mca:CSharpValue>
+                                                    <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">dictConfig</CSharpValue>
                                                   </InArgument>
                                                   <InArgument x:TypeArguments="x:String" x:Key="message">
-                                                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">exception.Message</mca:CSharpValue>
+                                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">exception.Message</CSharpValue>
                                                   </InArgument>
                                                 </ui:InvokeWorkflowFile.Arguments>
                                               </ui:InvokeWorkflowFile>
@@ -620,7 +620,7 @@
                                         <ui:IfElseIfBlock BlockType="If">
                                           <ui:IfElseIfBlock.Condition>
                                             <InArgument x:TypeArguments="x:Boolean">
-                                              <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76">dictConfig.ContainsKey("MAX_RETRIES") &amp;&amp; retries &lt; Convert.ToInt32(dictConfig["MAX_RETRIES"])</mca:CSharpValue>
+                                              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76">dictConfig.ContainsKey("MAX_RETRIES") &amp;&amp; retries &lt; Convert.ToInt32(dictConfig["MAX_RETRIES"])</CSharpValue>
                                             </InArgument>
                                           </ui:IfElseIfBlock.Condition>
                                           <ui:IfElseIfBlock.Then>
@@ -633,12 +633,12 @@
                                               <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_6">
                                                 <Assign.To>
                                                   <OutArgument x:TypeArguments="x:Int32">
-                                                    <mca:CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">retries</mca:CSharpReference>
+                                                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">retries</CSharpReference>
                                                   </OutArgument>
                                                 </Assign.To>
                                                 <Assign.Value>
                                                   <InArgument x:TypeArguments="x:Int32">
-                                                    <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">retries + 1</mca:CSharpValue>
+                                                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">retries + 1</CSharpValue>
                                                   </InArgument>
                                                 </Assign.Value>
                                               </Assign>
@@ -656,10 +656,10 @@
                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="345,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="UniPark\\Component\\Notify\\Error.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
                                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                                                    <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_79">dictConfig</mca:CSharpValue>
+                                                    <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_79">dictConfig</CSharpValue>
                                                   </InArgument>
                                                   <InArgument x:TypeArguments="s:Exception" x:Key="exception">
-                                                    <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">exception</mca:CSharpValue>
+                                                    <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">exception</CSharpValue>
                                                   </InArgument>
                                                 </ui:InvokeWorkflowFile.Arguments>
                                               </ui:InvokeWorkflowFile>
@@ -678,13 +678,13 @@
                       </Sequence>
                     </ui:InterruptibleDoWhile.Body>
                     <ui:InterruptibleDoWhile.Condition>
-                      <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">!executed &amp;&amp; dictConfig.ContainsKey("MAX_RETRIES") &amp;&amp; retries &lt; Convert.ToInt32(dictConfig["MAX_RETRIES"])</mca:CSharpValue>
+                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_68">!executed &amp;&amp; dictConfig.ContainsKey("MAX_RETRIES") &amp;&amp; retries &lt; Convert.ToInt32(dictConfig["MAX_RETRIES"])</CSharpValue>
                     </ui:InterruptibleDoWhile.Condition>
                   </ui:InterruptibleDoWhile>
                   <If DisplayName="启动计时器" sap:VirtualizedContainerService.HintSize="200,1271" sap2010:WorkflowViewState.IdRef="If_4">
                     <If.Condition>
                       <InArgument x:TypeArguments="x:Boolean">
-                        <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_69">Convert.ToInt32(dictConfig["PROCESS_TIMEOUT"]) &gt; 0</mca:CSharpValue>
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_69">Convert.ToInt32(dictConfig["PROCESS_TIMEOUT"]) &gt; 0</CSharpValue>
                       </InArgument>
                     </If.Condition>
                     <sap:WorkflowViewStateService.ViewState>
@@ -703,22 +703,22 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <Delay DisplayName="定时延时" sap:VirtualizedContainerService.HintSize="345,22" sap2010:WorkflowViewState.IdRef="Delay_1">
                           <InArgument x:TypeArguments="x:TimeSpan">
-                            <mca:CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71">TimeSpan.FromMilliseconds(Convert.ToInt32(dictConfig["PROCESS_TIMEOUT"]))</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71">TimeSpan.FromMilliseconds(Convert.ToInt32(dictConfig["PROCESS_TIMEOUT"]))</CSharpValue>
                           </InArgument>
                         </Delay>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="超时报错" sap:VirtualizedContainerService.HintSize="345,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="UniPark\\Component\\Notify\\Error.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                              <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">dictConfig</mca:CSharpValue>
+                              <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">dictConfig</CSharpValue>
                             </InArgument>
                             <InArgument x:TypeArguments="s:Exception" x:Key="exception">
-                              <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_72">new TimeoutException("流程超时退出！")</mca:CSharpValue>
+                              <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_72">new TimeoutException("流程超时退出！")</CSharpValue>
                             </InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                         <Throw DisplayName="终止运行" sap:VirtualizedContainerService.HintSize="345,22" sap2010:WorkflowViewState.IdRef="Throw_1">
                           <InArgument x:TypeArguments="s:Exception">
-                            <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">new TimeoutException("流程运行超时，自动退出！")</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">new TimeoutException("流程运行超时，自动退出！")</CSharpValue>
                           </InArgument>
                         </Throw>
                       </Sequence>
@@ -733,7 +733,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <Delay DisplayName="无限延时" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delay_2">
                           <InArgument x:TypeArguments="x:TimeSpan">
-                            <mca:CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_75">TimeSpan.MaxValue</mca:CSharpValue>
+                            <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_75">TimeSpan.MaxValue</CSharpValue>
                           </InArgument>
                         </Delay>
                       </Sequence>
@@ -747,7 +747,7 @@
                   <av:Size x:Key="ShapeSize">250,129</av:Size>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   <x:Double x:Key="StateContainerWidth">216</x:Double>
-                  <x:Double x:Key="StateContainerHeight">92.519999999999982</x:Double>
+                  <x:Double x:Key="StateContainerHeight">92.51999999999998</x:Double>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <State.Transitions>
@@ -760,7 +760,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>
-                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">executed</mca:CSharpValue>
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">executed</CSharpValue>
                   </Transition.Condition>
                   <Transition.To>
                     <State x:Name="__ReferenceID2" DisplayName="发送通知邮件" sap:VirtualizedContainerService.HintSize="253,130" sap2010:WorkflowViewState.IdRef="State_5">
@@ -768,11 +768,9 @@
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="UniPark\\Component\\Notify\\Info.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="dictConfig">
-                              <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">dictConfig</mca:CSharpValue>
+                              <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">dictConfig</CSharpValue>
                             </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="message">
-                              <Literal x:TypeArguments="x:String">流程执行成功！</Literal>
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="message">流程执行成功！</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </State.Entry>
@@ -782,14 +780,14 @@
                           <av:Size x:Key="ShapeSize">253,130</av:Size>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           <x:Double x:Key="StateContainerWidth">219</x:Double>
-                          <x:Double x:Key="StateContainerHeight">93.519999999999982</x:Double>
+                          <x:Double x:Key="StateContainerHeight">93.51999999999998</x:Double>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <State.Exit>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_12">
                           <ui:LogMessage.Message>
                             <InArgument x:TypeArguments="x:Object">
-                              <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">"已发送通知邮件！"</mca:CSharpValue>
+                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">"已发送通知邮件！"</CSharpValue>
                             </InArgument>
                           </ui:LogMessage.Message>
                         </ui:LogMessage>
@@ -809,7 +807,7 @@
                                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,95" sap2010:WorkflowViewState.IdRef="LogMessage_11">
                                   <ui:LogMessage.Message>
                                     <InArgument x:TypeArguments="x:Object">
-                                      <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">"退出流程！"</mca:CSharpValue>
+                                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">"退出流程！"</CSharpValue>
                                     </InArgument>
                                   </ui:LogMessage.Message>
                                 </ui:LogMessage>
@@ -842,7 +840,7 @@
                     <x:Reference>__ReferenceID0</x:Reference>
                   </Transition.To>
                   <Transition.Condition>
-                    <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_81">!executed</mca:CSharpValue>
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_81">!executed</CSharpValue>
                   </Transition.Condition>
                 </Transition>
               </State.Transitions>
@@ -861,7 +859,7 @@
             <x:Reference>__ReferenceID0</x:Reference>
           </Transition.To>
           <Transition.Condition>
-            <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">!loaded</mca:CSharpValue>
+            <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">!loaded</CSharpValue>
           </Transition.Condition>
         </Transition>
       </State.Transitions>
@@ -872,12 +870,12 @@
     <StateMachine.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dictConfig">
         <Variable.Default>
-          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">new Dictionary&lt;string, object&gt;()</mca:CSharpValue>
+          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">new Dictionary&lt;string, object&gt;()</CSharpValue>
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dictContext">
         <Variable.Default>
-          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">new Dictionary&lt;string, object&gt;()</mca:CSharpValue>
+          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">new Dictionary&lt;string, object&gt;()</CSharpValue>
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="loaded" />

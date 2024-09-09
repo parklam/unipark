@@ -1,25 +1,28 @@
 {
   "name": "UniPark",
+  "projectId": "7de06027-8a4d-40e7-9b26-0c26d7bdc261",
   "description": "UiPath project template ",
   "main": "EntryPoint.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.11.4]",
-    "UiPath.Mail.Activities": "[1.12.2]",
-    "UiPath.System.Activities": "[21.10.1]",
-    "UiPath.UIAutomation.Activities": "[21.10.3]"
+    "UiPath.Excel.Activities": "[2.23.5]",
+    "UiPath.Mail.Activities": "[1.23.11]",
+    "UiPath.System.Activities": "[24.10.4]",
+    "UiPath.UIAutomation.Activities": "[24.10.3]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.0.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "exceptionHandlerWorkflow": "GlobalHandler.xaml",
     "autoDispose": false,
+    "netFrameworkLazyLoading": false,
     "isPausable": true,
     "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
     "excludedLoggedData": [
       "Private:*",
       "*password*"
@@ -27,7 +30,8 @@
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
-    "mustRestoreAllDependencies": true
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -40,7 +44,8 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": false
+    "modernBehavior": false,
+    "saveToCloud": false
   },
   "expressionLanguage": "CSharp",
   "entryPoints": [
@@ -63,5 +68,5 @@
     "defaultProjectName": "RPA项目名称"
   },
   "publishData": {},
-  "targetFramework": "Legacy"
+  "targetFramework": "Windows"
 }
